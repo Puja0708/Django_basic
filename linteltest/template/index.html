@@ -1,0 +1,168 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<head> <meta charset="utf-8">
+        <style>
+            ::-moz-selection {
+                background: #b3d4fc;
+                text-shadow: none;
+            }
+
+            ::selection {
+                background: #b3d4fc;
+                text-shadow: none;
+            }
+
+            html {
+                padding: 30px 10px;
+                font-size: 20px;
+                line-height: 1.4;
+                color: #737373;
+                background: #f0f0f0;
+                -webkit-text-size-adjust: 100%;
+                -ms-text-size-adjust: 100%;
+            }
+
+            html,
+            input {
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            }
+
+            body {
+                max-width: 500px;
+                _width: 500px;
+                padding: 30px 20px 50px;
+                border: 1px solid #b3b3b3;
+                border-radius: 4px;
+                margin: 0 auto;
+                box-shadow: 0 1px 10px #a7a7a7, inset 0 1px 0 #fff;
+                background: #fcfcfc;
+            }
+
+            h1 {
+                margin: 0 10px;
+                font-size: 50px;
+                text-align: center;
+            }
+
+            h1 span {
+                color: #bbb;
+            }
+
+            h3 {
+                margin: 1.5em 0 0.5em;
+            }
+
+            p {
+                margin: 1em 0;
+            }
+
+            ul {
+                padding: 0 0 0 40px;
+                margin: 1em 0;
+            }
+
+            .container {
+                max-width: 380px;
+                _width: 380px;
+                margin: 0 auto;
+            }
+
+            /* google search */
+
+            #goog-fixurl ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            #goog-fixurl form {
+                margin: 0;
+            }
+
+            #goog-wm-qt,
+            #goog-wm-sb {
+                border: 1px solid #bbb;
+                font-size: 16px;
+                line-height: normal;
+                vertical-align: top;
+                color: #444;
+                border-radius: 2px;
+            }
+
+            #goog-wm-qt {
+                width: 220px;
+                height: 20px;
+                padding: 5px;
+                margin: 5px 10px 0 0;
+                box-shadow: inset 0 1px 1px #ccc;
+            }
+
+            #goog-wm-sb {
+                display: inline-block;
+                height: 32px;
+                padding: 0 10px;
+                margin: 5px 0 0;
+                white-space: nowrap;
+                cursor: pointer;
+                background-color: #f5f5f5;
+                background-image: -webkit-linear-gradient(rgba(255,255,255,0), #f1f1f1);
+                background-image: -moz-linear-gradient(rgba(255,255,255,0), #f1f1f1);
+                background-image: -ms-linear-gradient(rgba(255,255,255,0), #f1f1f1);
+                background-image: -o-linear-gradient(rgba(255,255,255,0), #f1f1f1);
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                *overflow: visible;
+                *display: inline;
+                *zoom: 1;
+            }
+
+            #goog-wm-sb:hover,
+            #goog-wm-sb:focus {
+                border-color: #aaa;
+                box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+                background-color: #f8f8f8;
+            }
+
+            #goog-wm-qt:hover,
+            #goog-wm-qt:focus {
+                border-color: #105cb6;
+                outline: 0;
+                color: #222;
+            }
+
+            input::-moz-focus-inner {
+                padding: 0;
+                border: 0;
+            }
+        </style>
+	<title>{{title}}</title>
+</head>
+
+<body>
+	<h1>Home Page</h1>
+    {% block content %}{% endblock %}
+    {% block footer %}
+    <p> Plese tnter the following link to view the opening and closing stocks oc company having SC_Code 500002 on, say date 26-06-2014 :</p>
+    <a href = "http://localhost:8000/goc/500002/26062014/"> Task #1 : Enter SC_Code and date in the url </a>
+    <p> Likewise, for the range between two dates : (without the graph)</p>
+    <a href = "http://localhost:8000/goc_range/500003/30062014/02072014"> Task #2 :Enter SC_Code and date in the url </a>
+    <hr>
+    <p>Thanks for visiting my site.</p>
+    {% endblock %}
+
+     <script>window.jQuery || document.write('<script src="{{ STATIC_URL }}libs/jquery/2.1.0/jquery-2.1.0.min.js"><\/script>')</script>
+
+    <script src="{{ STATIC_URL }}libs/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <script src="{{ STATIC_URL }}js/main.js"></script>
+
+    <script>
+        var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+        g.src='//www.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+</body>
+</html>

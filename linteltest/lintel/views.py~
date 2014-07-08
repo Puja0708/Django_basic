@@ -1,0 +1,29 @@
+from django.shortcuts import render,redirect,render_to_response
+from lintel.models import DateData,stockdata
+from django.http import HttpResponseRedirect,HttpResponse
+import json
+#import simplejson
+import datetime
+
+def home(request):
+	context = {'title':'Lintel Test'}
+	return render(request,'index.html',context)
+
+def get_data(request,comp_name,date):
+	date_obj = DateData.objects.get(date=date)
+	company = date_obj.stockdata_set.get(SC_CODE=comp_name)
+	data = {'SC_NAME':company.SC_NAME,'SC_CODE':company.SC_CODE,'OPEN':company.OPEN,'CLOSE':company.CLOSE}
+	jsondata = simplejson.dumps(data,indent=4)
+	return HttpResponse(jsondata, mimetype='application/json')
+
+def get_alldata(request,comp_name,start_date,end_date):
+	d_list = DateData.objects.all()
+	c = d_list[0].stockdata_set.get(SC_CODE=comp_name)
+	data = {'SC_NAME':c.SC_NAME,'SC_CODE':c.SC_CODE}
+	for dates in d_list:
+		if dates.btwDates(start_date,end_date):
+			company = dates.stockdata_set.get(SC_CODE=comp_name)
+			temp_dict = {'OPEN':company.OPEN,'CLOSE':company.CLOSE}
+			data[str(dates)] = temp_dict
+	jsondata = simplejson.dumps(data,indent=4)
+	return HttpResponse(jsondata, mimetype='application/json')
